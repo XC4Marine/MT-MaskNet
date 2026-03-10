@@ -1,0 +1,52 @@
+seeds: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]  # 10 seeds for experiments
+
+paths:
+  data_dir: "data"
+  results_dir: "results/reports/phase1_results.txt"  # Single TXT for all reports/mean±std
+  figures_dir: "results/figures"  # CM and ROC plots
+  models_dir: "results/models"  # Directory to save .keras models
+
+training:
+  input_shape: [128, 128, 1]
+  sound_classes: 3
+  noise_classes: 4
+  epochs: 100
+  batch_size: 128
+  learning_rate: 0.001
+  early_stop_patience: 8
+  reduce_lr_patience: 5
+  reduce_lr_factor: 0.5
+  min_lr: 1e-6
+
+
+phase2:
+  pretrained_models_dir: "results/models"  # Where phase1 .keras are saved
+  mt_models_dir: "results/models"  # Save phase2 MT-MaskNet .keras here
+  figures_dir: "results/figures"   # CM/ROC for phase2
+  results_txt: "results/reports/phase2_results.txt"  # Reports/mean±std
+  loss_weights:
+    voice_type: 5.0
+    noise_type: 1.0
+  epochs: 100
+  batch_size: 128
+  learning_rate: 0.001
+  early_stop_patience: 8
+  reduce_lr_patience: 3
+  reduce_lr_factor: 0.5
+  min_lr: 1e-6
+
+
+real_test:
+  real_data_dir: "data/realPAM"  # Directory for raw .wav files
+  sr: 60600                       # Sampling rate
+  segment_length: 0.5             # Seconds per segment
+  seed: 700                       # Fixed seed for reproducibility
+  models_dir: "results/models"    # Where to load models from
+
+
+ablation:
+  layer_relu: "re_lu_6"           # Example for Layer1; update based on model.summary()
+  layer_bn: "batch_normalization_9"  # Example; update per layer
+  models_dir: "results/models"    # Save ablation models
+  results_txt: "results/reports/ablation_results_layer1.txt"  # Layer-specific report
+  # Use same training params as phase2

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "XUCHEN"
+    given-names: "WANG"
+    affiliation: "Xiamen University"  # e.g., University of Hong Kong
+    # Add co-authors here, e.g.:
+    # - family-names: "LastName"
+    #   given-names: "FirstName"
+title: "A Noise-Masking Marine Mammal Sound Classification Method via Multi-Task Learning"
+version: 1.0.0  # Repo version
+date-released: 2026-03-10  # Or paper acceptance date
+doi: "10.xxxx/xxxx"  # Add if paper has DOI; otherwise remove
+journal: "Journal Name"  # e.g., "Ecological Informatics"
+abstract: "Underwater noise pollution poses a significant challenge to passive acoustic monitoring (PAM) of marine mammals, as ambient noise frequently masks target sounds and degrades classification performance. This study proposes MT-MaskNet, an end-to-end multi-task learning (MTL) framework built upon ResNet18, which jointly optimizes marine mammal sound classification (primary task) and noise type classification (auxiliary task). A mid-level gating mechanism, guided by the auxiliary branch, dynamically suppresses noise-related feature activations while preserving salient acoustic patterns. A two-stage training strategy is employed to first decouple sound and noise representations and subsequently fine-tune the gating module, thereby mitigating negative transfer and promoting positive transfer to the primary task. Experiments on an augmented dataset (three dolphin species with realistic noise superposition at multiple SNRs) demonstrate that MT-MaskNet achieves a mean classification accuracy of 95.00% ± 0.8%, significantly outperforming single-task baselines (p = 0.0018). On real-world PAM recordings, accuracy improves markedly from 44.00% to 73.75%. The gating mechanism primarily provides coarse-grained noise indication, enabling robust feature enhancement, while introducing only a modest parameter overhead."
+keywords:
+  - "Marine Mammals Recognition"
+  - "Passive Acoustic Monitoring"
+  - "Multi-task Learning"
+  - "Gating Mechanism"
+  - "Noise-masking"
+url: "https://github.com/yourusername/MT-MaskNet"  # Your repo URL
+license: MIT
